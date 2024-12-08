@@ -17,6 +17,7 @@ contract Helloworld{
         return  RTTT1;
     }
     string ret="";
+    string resets="";
     function Addinfo(string memory Hellost) internal pure returns(string memory outstr){
         return string.concat(Hellost,"\tthis is add string!");
     }

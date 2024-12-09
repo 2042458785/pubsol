@@ -1,0 +1,152 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "inputnewstring",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "inputnewid",
+						"type": "uint256"
+					}
+				],
+				"name": "Insertwithmap",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "Mynewresetstring",
+						"type": "string"
+					}
+				],
+				"name": "Resethello",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "RT",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "inputid",
+						"type": "uint256"
+					}
+				],
+				"name": "Selecthelloworld",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "selectid",
+						"type": "uint256"
+					}
+				],
+				"name": "Selectwithmap",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "Newstring",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "newid",
+						"type": "uint256"
+					}
+				],
+				"name": "Sethelloworld",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sayhello",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"mytest111/mynewfile.sol": "Helloworld"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"mytest111/mynewfile.sol": {
+			"keccak256": "0xfccaa473440a2db9c75c1ff1f2ea0221ce4df317413da33f0485c04d06d40b82",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b33d6163cde0a01f1de245aabd83c3eb34869b16312749772ec2095d70b4d47a",
+				"dweb:/ipfs/QmTmWjHfKtZucfLvEqWNS2KVDXLPiP5BjoVRaYgs9TUgmz"
+			]
+		}
+	},
+	"version": 1
+}

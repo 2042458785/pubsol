@@ -38,11 +38,9 @@ contract Fundtome{
     //将目标收款额设置为1000USD
     uint256 FLAG=20; //USD
 
-    function fund() external payable {
+    function fund() external payable windownotclosed {
         //我们要确保转入的钱大于1个ETH,而在msg里面的计量单位是wei
         require(convertETHtoUSDT(msg.value) >= MINIUM_VALUE,"please send more money");
-        //确认没有超过锁定时间
-        require(block.timestamp < developtimestamp + locktime,"time is out,you can't fund in!");
         funderstoAmount[msg.sender]=msg.value;
     }
 
@@ -65,22 +63,20 @@ contract Fundtome{
     }
 
     //这个函数用于修改owner
-    //只有owner才能修改owner
-    function Resetowner(address Newowner) public {
-        require(msg.sender == owner,"you are not owner");
+    function Resetowner(address Newowner) public onlyOwner{
         owner=Newowner;
     }
 
     //这个函数用于在达到目标值之后,生产商可以提款
     //第一要满足达到目标值
     //第二要达到身份是生产商
-    function Getmoneyifover() external {
+    function Getmoneyifover() external windowClosed{
         //先满足收款额达到目标值
         require(convertETHtoUSDT(address(this).balance) >= FLAG,"balance is not reach to FLAG!");
         //再满足发起提款的身份
         require(msg.sender == owner,"you are not owner");
-        //再满足已经超过锁定时间
-        require(block.timestamp > developtimestamp + locktime,"time is not reached!");
+        // //再满足已经超过锁定时间
+        // require(block.timestamp > developtimestamp + locktime,"time is not reached!");
         //验证上述身份之后我们就开始转账
         //将账户里面所有的钱转给这个人也就是owner
         //转账有三种方式
@@ -98,14 +94,14 @@ contract Fundtome{
         funderstoAmount[msg.sender] = 0;
     }
     //在规定时间内,没有达到目标值的情况下,每个用户就可以退款了
-    function Refund()external {
+    function Refund()external windowClosed{
         //判断如果总金额小于目标金额
         require(convertETHtoUSDT(address(this).balance) < FLAG,"reach the FLAG!");
         //判断这个要提款的用户的金额是否为空
         //如果为空不能提款,非空才能提款
         require(funderstoAmount[msg.sender] != 0,"there is no your money!");
-        //再满足已经超过锁定时间
-        require(block.timestamp > developtimestamp + locktime,"time is not reached!");
+        // //再满足已经超过锁定时间
+        // require(block.timestamp > developtimestamp + locktime,"time is not reached!");
         //如果这两个条件都通过了那么就可以用call退回这个用户的钱了
         bool refundstatus;
         (refundstatus, )=payable(msg.sender).call{value: funderstoAmount[msg.sender]}("");
@@ -114,4 +110,21 @@ contract Fundtome{
         //如果发送成功的话就把该用户资产清零
         funderstoAmount[msg.sender]=0;
     }
+    //这是超过锁定时间的判断
+    modifier windowClosed{
+        //再满足已经超过锁定时间
+        require(block.timestamp > developtimestamp + locktime,"time is not reached!");
+        _;
+    }
+    //只有owner才能修改owner
+    modifier onlyOwner{
+        require(msg.sender == owner,"you are not owner");
+        _;
+    }
+    //确认没有超过锁定时间
+    modifier windownotclosed{
+        require(block.timestamp < developtimestamp + locktime,"time is out,you can't fund in!");
+        _;
+    }
+    
 }

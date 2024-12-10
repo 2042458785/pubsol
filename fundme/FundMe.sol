@@ -14,24 +14,35 @@ contract Fundtome{
 
     address public owner;
     //在sepolia测试网上找到ETH/USD
-    constructor() {
+
+    //先定义一个部署时间的时间戳
+    uint256 developtimestamp;
+    //再去定义一个需要填写的锁定时间
+    uint256 locktime;
+    constructor(uint256 needblocktime) {
         dataFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
         //将部署这个合约的人设置为owner
         owner=msg.sender;
+        //我们为时间戳赋予当前的时间
+        developtimestamp=block.timestamp;
+        locktime=needblocktime;
     }
+
     mapping (address addr => uint256 much) public  funderstoAmount;
     //将最小值设置为100美元
-    uint256 MINIUM_VALUE=100; //USD
+    uint256 MINIUM_VALUE=10; //USD
     //我们也可以用ETH但是ETH的单位是(wei)
     //也就是 1ETH=10 ** 18wei
     //所以我们的最小值就应该设置为 uint256 MINIUM_VALUE=1 * 10 ** 18
 
     //将目标收款额设置为1000USD
-    uint256 FLAG=1000; //USD
+    uint256 FLAG=20; //USD
 
     function fund() external payable {
         //我们要确保转入的钱大于1个ETH,而在msg里面的计量单位是wei
         require(convertETHtoUSDT(msg.value) >= MINIUM_VALUE,"please send more money");
+        //确认没有超过锁定时间
+        require(block.timestamp < developtimestamp + locktime,"time is out,you can't fund in!");
         funderstoAmount[msg.sender]=msg.value;
     }
 
@@ -68,6 +79,8 @@ contract Fundtome{
         require(convertETHtoUSDT(address(this).balance) >= FLAG,"balance is not reach to FLAG!");
         //再满足发起提款的身份
         require(msg.sender == owner,"you are not owner");
+        //再满足已经超过锁定时间
+        require(block.timestamp > developtimestamp + locktime,"time is not reached!");
         //验证上述身份之后我们就开始转账
         //将账户里面所有的钱转给这个人也就是owner
         //转账有三种方式
@@ -84,13 +97,15 @@ contract Fundtome{
         //其他用户也不能提款,但是也要把owner的资产清零
         funderstoAmount[msg.sender] = 0;
     }
-    //在没有达到目标值的情况下,每个用户就可以退款了
+    //在规定时间内,没有达到目标值的情况下,每个用户就可以退款了
     function Refund()external {
         //判断如果总金额小于目标金额
         require(convertETHtoUSDT(address(this).balance) < FLAG,"reach the FLAG!");
         //判断这个要提款的用户的金额是否为空
         //如果为空不能提款,非空才能提款
         require(funderstoAmount[msg.sender] != 0,"there is no your money!");
+        //再满足已经超过锁定时间
+        require(block.timestamp > developtimestamp + locktime,"time is not reached!");
         //如果这两个条件都通过了那么就可以用call退回这个用户的钱了
         bool refundstatus;
         (refundstatus, )=payable(msg.sender).call{value: funderstoAmount[msg.sender]}("");

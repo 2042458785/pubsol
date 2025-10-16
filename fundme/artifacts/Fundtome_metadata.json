@@ -1,0 +1,144 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "needblocktime",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "Getmoneyifover",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Refund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "Newowner",
+						"type": "address"
+					}
+				],
+				"name": "Resetowner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fund",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "funderstoAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "much",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getChainlinkDataFeedLatestAnswer",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"fundme/FundMe.sol": "Fundtome"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol": {
+			"keccak256": "0x257a8d28fa83d3d942547c8e129ef465e4b5f3f31171e7be4739a4c98da6b4f0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6d39e11b1dc7b9b8ccdabbc9be442ab7cda4a81c748f57e316dcb1bcb4a28bf9",
+				"dweb:/ipfs/QmaG6vz6W6iEUBsbHSBob5mdcitYxWjoygxREHpsJHfWrS"
+			]
+		},
+		"fundme/FundMe.sol": {
+			"keccak256": "0x888fbf9a13e301989d35a24314c7c291b8e820a167f50f215d015167ba2809f7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1bc05372dfcfe6404cec2c2b54e72b9b0c6a9529fe83713b9025a18b66dfd483",
+				"dweb:/ipfs/QmUagbWiSFnBr4MASQeeWFBpgBiawsCbcQEEutsLUsGJF3"
+			]
+		}
+	},
+	"version": 1
+}

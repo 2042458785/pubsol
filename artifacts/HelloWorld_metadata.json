@@ -1,0 +1,72 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "ResetString",
+						"type": "string"
+					}
+				],
+				"name": "ResetHelloWorld",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sayHello",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "ReturnBytes",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"NextFundMe/newfundme.sol": "HelloWorld"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"NextFundMe/newfundme.sol": {
+			"keccak256": "0xa2b79e2b565cc1d38b7f678ce6ce7929b41ef8fc65d762c0e7c74927a6dcfd9f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4a3a6adef9ae52fb76fefd3070f3da9e55d14875e286fc6c1eaa1159681e598b",
+				"dweb:/ipfs/QmVMugxEx6cBFmwt7X7zhr45sc9wifGZDitXLncUgiJouw"
+			]
+		}
+	},
+	"version": 1
+}

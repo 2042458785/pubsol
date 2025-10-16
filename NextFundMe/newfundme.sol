@@ -23,7 +23,7 @@ contract HelloWorld{
     }
     //下面这个函数可以修改变量
     function ResetHelloWorld ( string memory ResetString) public{
-        Strbytes=ResetString;123
+        Strbytes=ResetString;
     }
 
 

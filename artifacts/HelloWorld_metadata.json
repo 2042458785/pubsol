@@ -1,0 +1,159 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "inid",
+						"type": "uint256"
+					}
+				],
+				"name": "GetInfoMapping",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "rtstring",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "inid",
+						"type": "uint256"
+					}
+				],
+				"name": "GetInfoStruct",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "ResetString",
+						"type": "string"
+					}
+				],
+				"name": "ResetHelloWorld",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "inid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "instring",
+						"type": "string"
+					}
+				],
+				"name": "SetInfoMapping",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "inid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "instring",
+						"type": "string"
+					}
+				],
+				"name": "SetInfoStruct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sayHello",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "ReturnBytes",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sayHelloAddinfo",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "SayHello",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"NextFundMe/newfundme.sol": "HelloWorld"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"NextFundMe/newfundme.sol": {
+			"keccak256": "0xbaddf8fa7b6f6d01646ce5fd5717d8c786aa7c1088e044905c20f5493b4cd2bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e269c4b9491392fcc5d84c45f411af21bed2f203fc556da3325a5879206ef7b3",
+				"dweb:/ipfs/Qmd6X697jhutQZYNNDnAxCbLZVPQCFuKrfqCFex2GfJuUf"
+			]
+		}
+	},
+	"version": 1
+}

@@ -22,8 +22,16 @@ contract HelloWorld{
 
     }
     //下面这个函数可以修改变量
-    function ResetHelloWorld ( string memory ResetString) public{
+    function ResetHelloWorld (string memory ResetString) public{
         Strbytes=ResetString;
+    }
+
+    function Addinfo(string memory OrigionString) internal pure returns(string memory AddinfoStr){
+        return string.concat(OrigionString,"From Ddy's Contract");
+    }
+
+    function sayHelloAddinfo()public view returns(string memory SayHello){
+        return Addinfo(Strbytes);
     }
 
 
@@ -38,5 +46,12 @@ contract HelloWorld{
     //2.pure 不能读取和修改数据
     //3.payable 可以接收eth
 
+    //对于变量状态来说来说有6种类型
+    //1.storage
+    //2.memory
+    //3.calldata
+    //4.stack
+    //5.codes
+    //6.logs
 
 }

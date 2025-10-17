@@ -30,6 +30,19 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sayHelloAddinfo",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "SayHello",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -60,11 +73,11 @@
 	},
 	"sources": {
 		"NextFundMe/newfundme.sol": {
-			"keccak256": "0xa2b79e2b565cc1d38b7f678ce6ce7929b41ef8fc65d762c0e7c74927a6dcfd9f",
+			"keccak256": "0x11cf629071a2f3b132a15aa056064b35df756f3b0ed26210a4b8099cf5739ce4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4a3a6adef9ae52fb76fefd3070f3da9e55d14875e286fc6c1eaa1159681e598b",
-				"dweb:/ipfs/QmVMugxEx6cBFmwt7X7zhr45sc9wifGZDitXLncUgiJouw"
+				"bzz-raw://43c00c224ffffad0c9612c1e1ee3b3c014a7417a5d0ba2831bd96b3c6455c56b",
+				"dweb:/ipfs/QmV6zBVQbUrHFoYaFLZTAyTRoy1RPEhdajj1s2f96VBPpx"
 			]
 		}
 	},

@@ -9,30 +9,16 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "inid",
+						"name": "index",
 						"type": "uint256"
-					}
-				],
-				"name": "GetInfoMapping",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "rtstring",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
+					},
 					{
 						"internalType": "uint256",
 						"name": "inid",
 						"type": "uint256"
 					}
 				],
-				"name": "GetInfoStruct",
+				"name": "CallSayHelloWorldinFactory",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -46,18 +32,10 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "ResetString",
-						"type": "string"
-					}
-				],
-				"name": "ResetHelloWorld",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
 					{
 						"internalType": "uint256",
 						"name": "inid",
@@ -69,7 +47,14 @@
 						"type": "string"
 					}
 				],
-				"name": "SetInfoMapping",
+				"name": "CallSetHelloWorldinFactory",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "createHelloWorld",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -78,41 +63,16 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "inid",
+						"name": "Index",
 						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "instring",
-						"type": "string"
 					}
 				],
-				"name": "SetInfoStruct",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "sayHello",
+				"name": "getHelloWorld",
 				"outputs": [
 					{
-						"internalType": "string",
-						"name": "ReturnBytes",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "sayHelloAddinfo",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "SayHello",
-						"type": "string"
+						"internalType": "contract HelloWorld",
+						"name": "rtHelloWorld",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -132,7 +92,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"NextFundMe/factory/factory.sol": "HelloWorld"
+			"NextFundMe/factory/factory.sol": "HelloWorldFactory"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -147,11 +107,19 @@
 	},
 	"sources": {
 		"NextFundMe/factory/factory.sol": {
-			"keccak256": "0xe56159adf7392e7fbd7a8c67d62e9cbe321beba388013b36ebb0941d8a42a2e7",
+			"keccak256": "0x43a67e2ae67bff21ce293d2b3db521c518f86c6d6f88ce9f09efd0360a4be032",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1164f0907198130e85707dd2d7ccac5bbab9404b313934f206e3c2de8eb83d97",
-				"dweb:/ipfs/QmPJkobWe92zzDsBJL5GWLz3o1v6bz1epnuBdAA6P6H8Pj"
+				"bzz-raw://95a4cd4336e93a2479237be74b3bffb48d3a77f03378e350d899715625a83a37",
+				"dweb:/ipfs/QmWDJ42R5ZqBqGtATQvQhh4DPaRhmgGoig5H2Nz3T3eJB5"
+			]
+		},
+		"NextFundMe/newfundme.sol": {
+			"keccak256": "0xbaddf8fa7b6f6d01646ce5fd5717d8c786aa7c1088e044905c20f5493b4cd2bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e269c4b9491392fcc5d84c45f411af21bed2f203fc556da3325a5879206ef7b3",
+				"dweb:/ipfs/Qmd6X697jhutQZYNNDnAxCbLZVPQCFuKrfqCFex2GfJuUf"
 			]
 		}
 	},

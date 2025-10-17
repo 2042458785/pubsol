@@ -1,0 +1,72 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "funder",
+						"type": "address"
+					}
+				],
+				"name": "FundersAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fund",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"NewFundMe/fundme.sol": "FundMe"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"NewFundMe/fundme.sol": {
+			"keccak256": "0x1a20f8b86d383dbae1b5137f64d52186233bb212430d9fccee264d1afb0449fb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://20b0cd8b76b424013aa7ed0541d75ed2be2b082511bbf96527329fa56061a272",
+				"dweb:/ipfs/QmWTY5ExeB1mF2fQaGRG9DShJ3tVzJtcGLBqq6vAhU2oXU"
+			]
+		}
+	},
+	"version": 1
+}

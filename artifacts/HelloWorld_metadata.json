@@ -19,6 +19,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "inid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "instring",
+						"type": "string"
+					}
+				],
+				"name": "SetInfoStruct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "sayHello",
 				"outputs": [
@@ -73,11 +91,11 @@
 	},
 	"sources": {
 		"NextFundMe/newfundme.sol": {
-			"keccak256": "0x11cf629071a2f3b132a15aa056064b35df756f3b0ed26210a4b8099cf5739ce4",
+			"keccak256": "0x9bb45072dbde0b2a4306abf7916da959e31a5b07b3ea623ae50a98c92c08e14c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://43c00c224ffffad0c9612c1e1ee3b3c014a7417a5d0ba2831bd96b3c6455c56b",
-				"dweb:/ipfs/QmV6zBVQbUrHFoYaFLZTAyTRoy1RPEhdajj1s2f96VBPpx"
+				"bzz-raw://6e00a9b7f714cef9235a4ef2a7c9fe405da2e9d7bc13ccc2068e78fb7716fdab",
+				"dweb:/ipfs/QmV9zmC8rHi476o158K2yoezHrxGUNmbUeakrn6JsMHstx"
 			]
 		}
 	},

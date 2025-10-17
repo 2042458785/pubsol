@@ -47,11 +47,36 @@ contract HelloWorld{
     //3.payable 可以接收eth
 
     //对于变量状态来说来说有6种类型
-    //1.storage
-    //2.memory
+    //1.storage 
+    //2.memory 
     //3.calldata
     //4.stack
     //5.codes
     //6.logs
+    //memory和calldata是暂时性存储 他们的区别就是memory是在运行中可以被修改的,而calldata在运行中是不能被修改的
+    //memory和calldata一般都是放在函数里面的 一般是放在入参和返回值哪里的参数类型
+    //storage 就一般是放在合约里面的 一个永久性存储
+    //在合约中常量的话,就是默认为storage的类型
+    
+    //永久性存储和暂时性存储的区别就是,永久性存储是永远存储在区块链上面的,而暂时性存储就是在调用这个合约或者说这个函数的时候,才会进行暂时性存储的一个变量,交易或者合约结束就不存在了
+    //还有就是简单的数据类型不用去指定这些东西 因为编译器会自动去指定它的数据类型,复杂的数据类型就需要去指定了 指定它的具体存储状态
+
+
+    //数组,映射,结构体
+    // struct 结构体:把多种不同的数据类型合在一起去使用 uint,int,string,bytes32等
+    // array 数组: 把单个基础数据类型存在一起
+    // mapping 映射: 通过键值对的方式进行存储数据 通过键来找到对应的值
+
+    struct Info{
+        uint256 id;
+        string phrase;
+        address addr;
+    }
+    Info[] Infos;
+    function SetInfoStruct(uint256 inid,string memory instring) public {
+        Info memory oneinfo=Info(inid,instring,msg.sender);
+        //我们想创造一个结构来存储Info这个结构体,我们创建一个永久存储的结构体切片,那我们直接在合约里面创建就OK了,合约里面的就是默认为永久存储数据storage
+        Infos.push(oneinfo);
+    }
 
 }

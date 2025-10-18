@@ -114,4 +114,10 @@ contract HelloWorld{
     //3.call
 
     //前两种都是纯转账,第三种就是在转账的同时带一点数据要发送的
+
+    //modifier 修改器 就是把语句添加在一个函数的前面 可以把_理解为其他的语句
+    modifier modifier1(){
+        require(block.timestamp>=1,"timestamp is not >=1!");
+        _;
+    }
 }

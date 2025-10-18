@@ -24,22 +24,34 @@ contract FundMe{
 
     address public owner;
 
+    //这是我们设置的锁定期
+    uint256 developmenttimestamp;
+    uint256 locktime;
+
     //接下来初始化这个参数
     //constructor的作用就是在合约部署的时候初始化合约的状态变量或执行一次性设置,只在合约创建时运行一次,之后无法再次调用
 
-    constructor (){
+    constructor (uint256 inlocktime){
         dataFeed=AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
         //设置合约权限者为当前部署合约的人
         owner=msg.sender;
+        //设置合约部署时的时间戳
+        developmenttimestamp=block.timestamp;
+        //设置合约锁定期
+        locktime=inlocktime;
     }
 
-    function fund() external payable { 
+    function fund() external payable InWindowTime { 
         //创建收款函数,并给投资人进行记录  
 
         //我们设置一个最小的收款额度,低于这个额度我们就会对这个交易进行退回
         //另外 我们想要得到这个真实的相对于USD的价格 这需要依赖chainlink网络来进行获取和计算
         //最后得到的结果是ETH数量value乘以单价 ETH/USD 得到总价 也就是USD*10**18 美元乘以10的18次方
         require(convertEthToUsd(msg.value)>=MINIMUM_VALUE,"Please Send More ETH!!!");
+        
+        //我们要验证一下锁定期
+        
+
         FundersAmount[msg.sender]=msg.value;
         //msg.sender 就是投资人的地址
         //msg.value 就是投资人的金额
@@ -63,18 +75,20 @@ contract FundMe{
     }
 
     //转移合约权限者的函数
-    function TransferOwnership(address newowner) public{
-        require(msg.sender==owner,"this function can only be called by owner");
+    function TransferOwnership(address newowner) public onlyOwner{
         //转移合约权限
         owner=newowner;
     }
 
-    function getFund() external {
+    function getFund() external WindowNotClosed onlyOwner{
         //检查合约地址上的余额是否已经满足提现要求
         require(convertEthToUsd(address(this).balance)>=MINIMUM_VALUE,"Fund is too low!");
         //检查用户有权限提出现在的余额
         require(msg.sender==owner,"this function can only bu called by owner");
         
+        //我们进行锁定时间的判断
+        
+
         //现在我们要进行合约地址余额的转出
 
         //transfer : transfer ETH and revert if tx fail
@@ -95,19 +109,45 @@ contract FundMe{
         (success ,)=payable(msg.sender).call{value: address(this).balance}(""); 
         require(success,"tx failed");
 
+        //我们也在这里把投资人的余额设置为0,不管它是不是owner
+        FundersAmount[msg.sender]=0;
 
     }
 
-    function refund() external{
+    function refund() external WindowNotClosed{
         //先检查是否到达目标价
         require(convertEthToUsd(address(this).balance)<target,"target is reached!");
         //检查用户是否有fund
         require(FundersAmount[msg.sender]!=0,"you don't have fund,there is no fund for you!");
+       
+        //进行锁定时间的判断
+        
+       
         //接下来使用call方式进行转账
         //退还该用户fund的金额
         bool successstatus;
         (successstatus,)=payable(msg.sender).call{value: FundersAmount[msg.sender]}("");
         require(successstatus,"tx fail!");
+
+        //在每次调用完转账之后我们都要将这个用户的账户余额在mapping中清零
+        FundersAmount[msg.sender]=0;
+    }
+
+
+    //我们添加几个modifier来减少重复出现的语句
+    modifier onlyOwner(){ //限制只有合约权限用户能对这个函数进行操作
+        require(msg.sender==owner,"this function can only be called by owner");
+        _;
+    }
+
+    modifier WindowNotClosed(){ //限制函数只有在锁定期结束才能够被调用
+        require(block.timestamp>=developmenttimestamp+locktime,"Time Window is not closed!");    
+        _;
+    }
+
+    modifier  InWindowTime(){ //限制函数只能在锁定期也就是窗口期才能够被调用
+        require(block.timestamp<developmenttimestamp+locktime,"Time Window is closed!");
+        _;
     }
 
 }

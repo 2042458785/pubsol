@@ -117,6 +117,19 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "target",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -132,7 +145,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"NextFundMe/factory/factory.sol": "HelloWorld"
+			"Study/newfundme.sol": "HelloWorld"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -146,12 +159,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"NextFundMe/factory/factory.sol": {
-			"keccak256": "0xe56159adf7392e7fbd7a8c67d62e9cbe321beba388013b36ebb0941d8a42a2e7",
+		"Study/newfundme.sol": {
+			"keccak256": "0x5f85518ac4f5db4a2e659bf67ad4b4ba65322080142e9316626fcba2d7fd69b4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1164f0907198130e85707dd2d7ccac5bbab9404b313934f206e3c2de8eb83d97",
-				"dweb:/ipfs/QmPJkobWe92zzDsBJL5GWLz3o1v6bz1epnuBdAA6P6H8Pj"
+				"bzz-raw://bfb1b422f0235d824c7e29d84a9c21e17e12ad935a834b177d617ab0ff54bfd9",
+				"dweb:/ipfs/QmTJwVp71xQmDn4gMJYxpQrtLPVNEQUMWsjc7s3VeVdZxD"
 			]
 		}
 	},

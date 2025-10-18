@@ -30,16 +30,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "MINIMUM_VALUE",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "newowner",
+						"type": "address"
 					}
 				],
-				"stateMutability": "view",
+				"name": "TransferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -57,6 +57,46 @@
 						"internalType": "int256",
 						"name": "",
 						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getFund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "refund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "target",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -99,11 +139,11 @@
 			]
 		},
 		"NewFundMe/fundme.sol": {
-			"keccak256": "0x8b43c76f2635e67ddb24304f7abe01f6849a52b3c068ea1f6c7f37373cd9c7f7",
+			"keccak256": "0x828c22b876ccccffdc24aa32ec14b4b1d88939be538d3094eecd58f61c0925f9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f0d7ade7fa9c08bcaf5e470d03dfd8bd98c1834d8fbafbac7bab1963036fdbe0",
-				"dweb:/ipfs/QmP4zHHmPYoRXZ6yto6DrA2MBstdvKnhW4wb4FwwQRAGNq"
+				"bzz-raw://031308bcdfdde51b7ca376f1f4ffc974075fc2e2e09f467fd53d9b8f49fe6eb5",
+				"dweb:/ipfs/QmRJKAq8xtswrZBaSYomphDLZHNBH4rpbUHUkEgyvDqmsU"
 			]
 		}
 	},

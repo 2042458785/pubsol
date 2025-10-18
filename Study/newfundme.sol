@@ -12,6 +12,9 @@ contract HelloWorld{
     bytes32 Varbytes="Hello World!"; //bytes32就是指定了数据的大小最大就是32个字节,然后用string的话就是自动分配多少个字节
     string Strbytes="Hello Worlds!"; //string自动分配了需要用到的bytes大小 如果超出都是可以使用的
     
+    //上面的都是变量,下面这个是一个常量 就是定义了之后不需要去过多改变的一个量
+    uint256  constant public  target=1000*10**18; //USD
+
     //对于上面的所有数据类型 如果知道确切的 当然是更好,这样节约资源,使用限定大小的数据类型就好
     address VarAddress = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
 
@@ -104,4 +107,11 @@ contract HelloWorld{
             return Addinfo(infoMapping[inid].phrase);
         }
     }
+
+    //现在有三种转账方式
+    //1.transfer: transfer ETH and revert if tx failed
+    //2.send: transfer ETH and return false if ailed
+    //3.call
+
+    //前两种都是纯转账,第三种就是在转账的同时带一点数据要发送的
 }

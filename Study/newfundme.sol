@@ -141,3 +141,32 @@ contract Chlid is Parent{
 //ERC721: Non-Fungible Token 非同质化代币
 
 //抽象合约abstract和虚函数virtual
+abstract contract AbstructParent {
+    uint256 public a;
+    function AddOne() public{
+        a++;
+    }
+    function AddTwoFirst() public virtual ;
+
+    function AddTwoSecond() public virtual {
+        a=a+3;
+    }
+}
+
+contract AbstructChild is AbstructParent{
+   //我们用空函数体重写一个没有函数体的合约
+   function AddTwoFirst() public override{
+
+   }
+   //我们重写一个具有函数体和对应内容的合约
+   function AddTwoSecond() public override  {
+       a=a+6;
+   }
+}
+
+//如果父合约中有虚函数的话,也就是virtual 那么这个父合约就应该在前面加上一个 abstract 抽象合约
+//这就是如果父合约为虚函数的话 并且没有函数体,也就是{}的话 那么在子合约里面就必须去override 重写
+
+//如果有函数体,{}都算 就不用重写 或者说重写的时候 是一个函数体{}都是可以的
+
+

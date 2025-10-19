@@ -1,0 +1,66 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "AddOne",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "a",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Study/newfundme.sol": "Parent"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Study/newfundme.sol": {
+			"keccak256": "0x24bc7e7c6d2b074e09bbc930018d578a7e44f7f9d29569e50e69dab8d5f4fc63",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://15ee88d381ccf4ecf60dceae247d6ff629973559a23866493f54f22191642266",
+				"dweb:/ipfs/QmeBgepm2J2W7hTStJ8z1yYnLrzEEojzAp1mUACgAt8Ctd"
+			]
+		}
+	},
+	"version": 1
+}

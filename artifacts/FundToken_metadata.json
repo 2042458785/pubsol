@@ -8,31 +8,35 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "inid",
-						"type": "uint256"
-					}
-				],
-				"name": "GetInfoMapping",
-				"outputs": [
+						"internalType": "string",
+						"name": "inTokenName",
+						"type": "string"
+					},
 					{
 						"internalType": "string",
-						"name": "rtstring",
+						"name": "inTokenSymbol",
 						"type": "string"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
+				"stateMutability": "nonpayable",
+				"type": "constructor"
 			},
 			{
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "inid",
+						"name": "Amount",
 						"type": "uint256"
 					}
 				],
-				"name": "GetInfoStruct",
+				"name": "Mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "TokenName",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -44,61 +48,12 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "ResetString",
-						"type": "string"
-					}
-				],
-				"name": "ResetHelloWorld",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "inid",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "instring",
-						"type": "string"
-					}
-				],
-				"name": "SetInfoMapping",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "inid",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "instring",
-						"type": "string"
-					}
-				],
-				"name": "SetInfoStruct",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
-				"name": "sayHello",
+				"name": "TokenSymbol",
 				"outputs": [
 					{
 						"internalType": "string",
-						"name": "ReturnBytes",
+						"name": "",
 						"type": "string"
 					}
 				],
@@ -107,25 +62,81 @@
 			},
 			{
 				"inputs": [],
-				"name": "sayHelloAddinfo",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "SayHello",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "target",
+				"name": "TotalSupply",
 				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "Toaddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Amount",
+						"type": "uint256"
+					}
+				],
+				"name": "TransferToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "balance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "OneAddr",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -145,7 +156,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Study/newfundme.sol": "HelloWorld"
+			"NewFundMe/MintToken.sol": "FundToken"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -159,12 +170,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Study/newfundme.sol": {
-			"keccak256": "0x24bc7e7c6d2b074e09bbc930018d578a7e44f7f9d29569e50e69dab8d5f4fc63",
+		"NewFundMe/MintToken.sol": {
+			"keccak256": "0xb1111ab0236ecb3346b77d10b5d81ea84728d55a34bbdbba1c79ecacca4d7822",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://15ee88d381ccf4ecf60dceae247d6ff629973559a23866493f54f22191642266",
-				"dweb:/ipfs/QmeBgepm2J2W7hTStJ8z1yYnLrzEEojzAp1mUACgAt8Ctd"
+				"bzz-raw://4e6188e398f05083cf28fab0bd5fd2699c505be9d4ec2ac6249f383993cdea03",
+				"dweb:/ipfs/QmdAdGg56fCPUbwSpUShiQ3YfyXBpgHuD1JRuFFWZdnnFN"
 			]
 		}
 	},

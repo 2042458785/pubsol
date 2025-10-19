@@ -121,3 +121,23 @@ contract HelloWorld{
         _;
     }
 }
+
+//下面这个是合约的继承
+contract Parent{
+    uint256 public a;
+    uint256 private b;
+    function AddOne() public{
+        a++;
+    }
+}
+
+contract Chlid is Parent{
+    function AddTwo()public{
+        a+=2;
+    }
+}
+
+//ERC20 : Fungible Token 同质化代币
+//ERC721: Non-Fungible Token 非同质化代币
+
+//抽象合约abstract和虚函数virtual

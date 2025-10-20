@@ -31,6 +31,10 @@ contract FundMe{
     //我们设置一个ERC20地址,这个地址来进行ERC20合约想要执行操作的控制
     address ERC20Addr;
 
+    //如果在锁定期结束 并且owner成功拿到全部款项 我们对这个状态进行一个标记
+    bool public getFundSuccess = false;
+    //默认为false
+
     //接下来初始化这个参数
     //constructor的作用就是在合约部署的时候初始化合约的状态变量或执行一次性设置,只在合约创建时运行一次,之后无法再次调用
 
@@ -114,6 +118,9 @@ contract FundMe{
 
         //我们也在这里把投资人的余额设置为0,不管它是不是owner
         FundersAmount[msg.sender]=0;
+
+        //在getFund提取款项成功之后,我们把这个状态设置为true;
+        getFundSuccess=true;
 
     }
 

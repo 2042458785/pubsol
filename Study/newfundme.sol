@@ -176,3 +176,5 @@ contract AbstructChild is AbstructParent{
 
 
 //现在有一个很重要的点就是如果用合约通过地址调用其他合约的话 如果调用的是合约里面的一个mapping,在其他合约里面就是一个生成的函数 当作函数来调用的
+//不止是mapping,其他的变量在被调用的时候也是会被自动变为一个getter的函数来进行调用 
+

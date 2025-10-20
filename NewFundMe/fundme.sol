@@ -28,6 +28,9 @@ contract FundMe{
     uint256 developmenttimestamp;
     uint256 locktime;
 
+    //我们设置一个ERC20地址,这个地址来进行ERC20合约想要执行操作的控制
+    address ERC20Addr;
+
     //接下来初始化这个参数
     //constructor的作用就是在合约部署的时候初始化合约的状态变量或执行一次性设置,只在合约创建时运行一次,之后无法再次调用
 
@@ -133,6 +136,14 @@ contract FundMe{
         FundersAmount[msg.sender]=0;
     }
 
+    function SetFundertoamount(address erc20contractaddress,uint256 newamount) external {
+        require(msg.sender==ERC20Addr,"you are not erc20owner!");
+        FundersAmount[erc20contractaddress]=newamount;
+    }
+
+    function SetERC20AddrOwner(address newerc20owner)public onlyOwner{
+        ERC20Addr=newerc20owner;
+    }
 
     //我们添加几个modifier来减少重复出现的语句
     modifier onlyOwner(){ //限制只有合约权限用户能对这个函数进行操作

@@ -13,14 +13,16 @@ contract FundMe{
     mapping(address funder=> uint256) public FundersAmount;
 
     //我们接下来设置一个投资人的最小投资金额
-    //我们想用USD美元来作为单位 
-    uint256  MINIMUM_VALUE=100*10**18; //这个单位是wei;
+    //我们想用USD美元来作为单位
+    uint256  MINIMUM_VALUE=10*10**18; //这个单位是wei;
 
     //先定义了从chainlink拿到的参数
-    AggregatorV3Interface internal dataFeed;
-    
-    //我们定义一个目标值常量---1000USD
-    uint256 constant public target =1000 * 10 ** 18;
+    AggregatorV3Interface public dataFeed;
+
+
+
+    //我们定义一个目标值常量---100USD
+    uint256 constant public target =100 * 10 ** 18;
 
     address public owner;
 
@@ -38,8 +40,13 @@ contract FundMe{
     //接下来初始化这个参数
     //constructor的作用就是在合约部署的时候初始化合约的状态变量或执行一次性设置,只在合约创建时运行一次,之后无法再次调用
 
-    constructor (uint256 inlocktime){
-        dataFeed=AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
+
+    event FundWithDrawBalance(uint256);
+
+    event RefundWithDraw(address,uint256);
+
+    constructor (uint256 inlocktime,address dataFeedAddr ){
+        dataFeed=AggregatorV3Interface(dataFeedAddr);
         //设置合约权限者为当前部署合约的人
         owner=msg.sender;
         //设置合约部署时的时间戳
@@ -48,16 +55,16 @@ contract FundMe{
         locktime=inlocktime;
     }
 
-    function fund() external payable InWindowTime { 
-        //创建收款函数,并给投资人进行记录  
+    function fund() external payable InWindowTime {
+        //创建收款函数,并给投资人进行记录
 
         //我们设置一个最小的收款额度,低于这个额度我们就会对这个交易进行退回
         //另外 我们想要得到这个真实的相对于USD的价格 这需要依赖chainlink网络来进行获取和计算
         //最后得到的结果是ETH数量value乘以单价 ETH/USD 得到总价 也就是USD*10**18 美元乘以10的18次方
         require(convertEthToUsd(msg.value)>=MINIMUM_VALUE,"Please Send More ETH!!!");
-        
+
         //我们要验证一下锁定期
-        
+
 
         FundersAmount[msg.sender]=msg.value;
         //msg.sender 就是投资人的地址
@@ -89,31 +96,32 @@ contract FundMe{
 
     function getFund() external WindowNotClosed onlyOwner{
         //检查合约地址上的余额是否已经满足提现要求
-        require(convertEthToUsd(address(this).balance)>=MINIMUM_VALUE,"Fund is too low!");
+        require(convertEthToUsd(address(this).balance)>=target,"Fund is too low!");
         //检查用户有权限提出现在的余额
-        require(msg.sender==owner,"this function can only bu called by owner");
-        
+        require(msg.sender==owner,"this function can only be called by owner");
+
         //我们进行锁定时间的判断
-        
+
 
         //现在我们要进行合约地址余额的转出
 
         //transfer : transfer ETH and revert if tx fail
         //默认 我们的msg不是payable我们先把它变成payable
         //我们把这个账户上的余额全部转走
-        payable(msg.sender).transfer(address(this).balance);
+        //payable(msg.sender).transfer(address(this).balance);
 
-        //send: transfer ETH and return false if failed 
-        bool status = payable(msg.sender).send(address(this).balance);
+        //send: transfer ETH and return false if failed
+        //bool status = payable(msg.sender).send(address(this).balance);
         //如果转账失败会返回false
-        require(status,"tx failed");
+        //require(status,"tx failed");
 
         //call: transfer ETH with data return value of function and bool
         //(bool,result)=addr.call{value:value}("");
         //返回的是bool 是否调用成功 和一个结果result 然后value代表需要发送的ETH,后面的用来上传数据,比如调用的数据(或者函数名等)
         //如果我们没有调用函数,那么result这个返回的值我们可以不关心
         bool success;
-        (success ,)=payable(msg.sender).call{value: address(this).balance}(""); 
+        uint256 balance=address(this).balance;
+        (success ,)=payable(msg.sender).call{value: balance}("");
         require(success,"tx failed");
 
         //我们也在这里把投资人的余额设置为0,不管它是不是owner
@@ -122,6 +130,8 @@ contract FundMe{
         //在getFund提取款项成功之后,我们把这个状态设置为true;
         getFundSuccess=true;
 
+        emit FundWithDrawBalance(balance);
+
     }
 
     function refund() external WindowNotClosed{
@@ -129,18 +139,20 @@ contract FundMe{
         require(convertEthToUsd(address(this).balance)<target,"target is reached!");
         //检查用户是否有fund
         require(FundersAmount[msg.sender]!=0,"you don't have fund,there is no fund for you!");
-       
+
         //进行锁定时间的判断
-        
-       
+
+
         //接下来使用call方式进行转账
         //退还该用户fund的金额
         bool successstatus;
-        (successstatus,)=payable(msg.sender).call{value: FundersAmount[msg.sender]}("");
+        uint256 balance=FundersAmount[msg.sender];
+        (successstatus,)=payable(msg.sender).call{value: balance}("");
         require(successstatus,"tx fail!");
 
         //在每次调用完转账之后我们都要将这个用户的账户余额在mapping中清零
         FundersAmount[msg.sender]=0;
+        emit RefundWithDraw(msg.sender,balance);
     }
 
     function SetFundertoamount(address erc20contractaddress,uint256 newamount) external {
@@ -159,7 +171,7 @@ contract FundMe{
     }
 
     modifier WindowNotClosed(){ //限制函数只有在锁定期结束才能够被调用
-        require(block.timestamp>=developmenttimestamp+locktime,"Time Window is not closed!");    
+        require(block.timestamp>=developmenttimestamp+locktime,"Time Window is not closed!");
         _;
     }
 

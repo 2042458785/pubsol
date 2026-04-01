@@ -8,14 +8,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "TokenName",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "TokenSymbol",
-						"type": "string"
+						"internalType": "address",
+						"name": "initialOwner",
+						"type": "address"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -849,7 +844,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ERC20_CCIP/NFT.sol": "Drunk"
+			"NFT/ERC20-NFT.sol": "Drunker"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -1047,12 +1042,12 @@
 				"dweb:/ipfs/QmVUSvooZKEdEdap619tcJjTLcAuH6QBdZqAzWwnAXZAWJ"
 			]
 		},
-		"ERC20_CCIP/NFT.sol": {
-			"keccak256": "0x83b9796a4fe043025acf833e658496be586138d54b067961de00d4bb788fbbc9",
+		"NFT/ERC20-NFT.sol": {
+			"keccak256": "0x1cff6bedb5cee01b66566dff36f199069b98826911a189619d3dc096c9e474c6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://11975f2e49167dc09a8aaa5210480773dc1819eefde1923a9d1f0a37d733ef7f",
-				"dweb:/ipfs/QmaUEYzUkyCqxKPedGdPXQtghG9cgY6ofG8qQyQxB8SXKJ"
+				"bzz-raw://9407d925d338590b9e1214bfd01f0aea8a376d852e059a9b183ee853b1aa2e3d",
+				"dweb:/ipfs/QmdAQYvLGZe7ULZgsQLbLTPLy9dWeqDvf2jNaHX387cMka"
 			]
 		}
 	},

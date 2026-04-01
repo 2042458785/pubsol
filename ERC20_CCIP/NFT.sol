@@ -8,17 +8,17 @@ import {ERC721Burnable} from "@openzeppelin/contracts/token/ERC721/extensions/ER
 import {ERC721Enumerable} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-contract Drunker is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable, Ownable {
+contract Drunk is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable, Ownable {
     uint256 private _nextTokenId;
 
     string constant DefaultMetaData="https://ipfs.io/ipfs/bafkreibo2wdolf54wpa7uc5lujz7dnzcumbk4baejn36j3mcjv3ge7l7bm";
     string private MetaData;
 
-    constructor(address initialOwner)
-        ERC721("Drunk", "DRK")
-        Ownable(initialOwner)
+    constructor(string memory TokenName,string memory TokenSymbol)
+        ERC721(TokenName,TokenSymbol)
+        Ownable(msg.sender)
     {}
-
+    
     function safeMint(address to,string memory InMetaData)
         public
         onlyOwner

@@ -1,0 +1,15 @@
+{
+    "name": "Goblin",
+    "description": "God damn Doblin!",
+    "image": "https://ipfs.io/ipfs/bafybeifpbsdcl2zzyufikjadms2vnrcgvzedorb46y4b3w5vz4zhvybfj4",
+    "attributes": [
+        {
+            "trait_type": "shit",
+            "value":"yellow"
+        },
+        {
+            "trait_type":"eat",
+            "value":"yes"
+        }
+    ]
+}

@@ -19,6 +19,8 @@ contract Drunk is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable, Ow
         Ownable(initialOwner)
     {}
 
+    
+
     function safeMint(address to,string memory InMetaData)
         public
         onlyOwner

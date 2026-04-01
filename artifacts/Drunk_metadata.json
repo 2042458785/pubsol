@@ -1043,11 +1043,11 @@
 			]
 		},
 		"NFT/ERC20-NFT.sol": {
-			"keccak256": "0xffede0e9e7c77350748875949c52ee9b82ab7b12764b6d1df0266318a3f1644a",
+			"keccak256": "0x5e758f622196a2d1ee424578ee0fd872b8340874837f701ecd4f1ae6a9453244",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1ed7e3cb617f6675e88ef060d5bcc0cdceecfd7017e1cacef581c4c9edd0efa5",
-				"dweb:/ipfs/QmNZh7ktBbU5c1XmyWjRV6cK3K9vMwgKx3HhPVQwWpzeNj"
+				"bzz-raw://3694e2db832788889d5b3566538522c57dacdd3a1bd43fcb2277b1df87dca023",
+				"dweb:/ipfs/QmWyxDA2QjmWisa4TXr8WMxcLCBAwCo6RZhg1pzqQjLJww"
 			]
 		}
 	},

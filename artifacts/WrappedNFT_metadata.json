@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.34+commit.80d5c536"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
@@ -869,7 +869,7 @@
 		"compilationTarget": {
 			"ERC20_CCIP/WrappedToken.sol": "WrappedNFT"
 		},
-		"evmVersion": "osaka",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -1066,19 +1066,19 @@
 			]
 		},
 		"ERC20_CCIP/NFT.sol": {
-			"keccak256": "0x83b9796a4fe043025acf833e658496be586138d54b067961de00d4bb788fbbc9",
+			"keccak256": "0xb341e81632ed0afbec5bcd89f69e037573e0b57eabce3f65eb4fc2e3058811a7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://11975f2e49167dc09a8aaa5210480773dc1819eefde1923a9d1f0a37d733ef7f",
-				"dweb:/ipfs/QmaUEYzUkyCqxKPedGdPXQtghG9cgY6ofG8qQyQxB8SXKJ"
+				"bzz-raw://3c3ffb081af6fb2c117a048894b947ef3045d908b6e8662f0abd5071edff5959",
+				"dweb:/ipfs/QmX9Y3Ce1vuwDZykx39BmgGqX1CTJ58p46WeprXfJTqZ1H"
 			]
 		},
 		"ERC20_CCIP/WrappedToken.sol": {
-			"keccak256": "0xc6e23bfa9fb3e5d5b23fa527844bf579a3c850b5ae897bc7e1351e84e8c8ede4",
+			"keccak256": "0xd66b8cc2021ba21e4554877880fbbe9976e3ced4a524d725b9ce98ea2c3e4f01",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://679f79f9d5aed08984c43837d856d08e515cb4ffbe628b972941a571ae61f016",
-				"dweb:/ipfs/QmSc239TdMSb6gmgLe5diysKa8pmoyC4BmAG525J4h5xNS"
+				"bzz-raw://377ece74e035e225faaa588f701c58e0e2b22db80510e8878a0d9024e2cb9fd6",
+				"dweb:/ipfs/QmS9aKBKzkS4XLX7F2VmoC42nCgr5gPVbAZ2v2Tkg5w1v2"
 			]
 		}
 	},

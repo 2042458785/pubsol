@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Compatible with OpenZeppelin Contracts ^5.6.0
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.34;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
@@ -28,9 +28,10 @@ contract Drunk is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable, Ow
         _safeMint(to, tokenId);
         if (keccak256(abi.encodePacked(InMetaData)) == keccak256(abi.encodePacked("default"))){ //判断字符串是否相等
             MetaData=DefaultMetaData; //使用default的MetaData
+        }else {
+            //不是default,使用传入的MetaData
+            MetaData=InMetaData;
         }
-        //不是default,使用传入的MetaData
-        MetaData=InMetaData;
         _setTokenURI(tokenId,MetaData);
         return tokenId;
     }

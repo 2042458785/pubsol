@@ -1074,11 +1074,11 @@
 			]
 		},
 		"ERC20_CCIP/WrappedToken.sol": {
-			"keccak256": "0xd66b8cc2021ba21e4554877880fbbe9976e3ced4a524d725b9ce98ea2c3e4f01",
+			"keccak256": "0xc6e23bfa9fb3e5d5b23fa527844bf579a3c850b5ae897bc7e1351e84e8c8ede4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://377ece74e035e225faaa588f701c58e0e2b22db80510e8878a0d9024e2cb9fd6",
-				"dweb:/ipfs/QmS9aKBKzkS4XLX7F2VmoC42nCgr5gPVbAZ2v2Tkg5w1v2"
+				"bzz-raw://679f79f9d5aed08984c43837d856d08e515cb4ffbe628b972941a571ae61f016",
+				"dweb:/ipfs/QmSc239TdMSb6gmgLe5diysKa8pmoyC4BmAG525J4h5xNS"
 			]
 		}
 	},

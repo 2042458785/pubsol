@@ -1,0 +1,80 @@
+{
+	"compiler": {
+		"version": "0.8.35+commit.47b9dedd"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[2]",
+						"name": "_pA",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256[2][2]",
+						"name": "_pB",
+						"type": "uint256[2][2]"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "_pC",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "_pubSignals",
+						"type": "uint256[2]"
+					}
+				],
+				"name": "verifyProof",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Zero-Knowledge/第一次尝试FirstTest/verifier.sol": "Groth16Verifier"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Zero-Knowledge/第一次尝试FirstTest/verifier.sol": {
+			"keccak256": "0xcb1494f24f477efaa60d0b21e5cb31a1bf9d5b8e119aeb38434c02adb8db30d1",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://c660762f5e63ed4bba0da511a13761941e2da0b68a8910fcfccec65f01fcbe1e",
+				"dweb:/ipfs/QmfAwUqhPHbf39jkoZTAqKQCem2hBcNfhiT7DLjHUK8V2F"
+			]
+		}
+	},
+	"version": 1
+}
